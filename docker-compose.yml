@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  database:
+    image: mongo
+    restart: always
+    container_name: mongo-container
+#    environment:
+#      MONGO_INITDB_DATABASE: workshop_mongo
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./mongo-volume:/data/db
+    ports:
+      - '27017-27019:27017-27019'
