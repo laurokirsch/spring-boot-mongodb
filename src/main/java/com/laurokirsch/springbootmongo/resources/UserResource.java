@@ -1,5 +1,6 @@
 package com.laurokirsch.springbootmongo.resources;
 
+import com.laurokirsch.springbootmongo.domain.Post;
 import com.laurokirsch.springbootmongo.domain.User;
 import com.laurokirsch.springbootmongo.dto.UserDTO;
 import com.laurokirsch.springbootmongo.services.UserService;
@@ -52,5 +53,11 @@ public class UserResource {
         obj.setId(id); // set it's id as the User user id in the DB
         service.update(obj); // updates the user with the new object
         return ResponseEntity.noContent().build();
+    }
+
+    @RequestMapping(value="/{id}/posts", method=RequestMethod.GET)
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+        User obj = service.findById(id);
+        return ResponseEntity.ok().body(obj.getPosts());
     }
 }
