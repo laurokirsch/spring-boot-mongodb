@@ -1,7 +1,6 @@
 package com.laurokirsch.springbootmongo.dto;
 
 import com.laurokirsch.springbootmongo.domain.User;
-
 import java.io.Serializable;
 
 public class AuthorDTO implements Serializable {
@@ -13,6 +12,7 @@ public class AuthorDTO implements Serializable {
     }
 
     public AuthorDTO(User obj) {
+        super();
         id = obj.getId();
         name = obj.getName();
     }
